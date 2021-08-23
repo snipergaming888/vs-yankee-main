@@ -181,7 +181,11 @@ class PauseSubState extends MusicBeatSubstate
 							if (PlayState.storyPlaylist.length != 1) {
 								menuItems = ['Resume', 'Restart Song', 'Skip Song', 'Change Difficulty', 'Chart Editor', 'Exit to menu'];
 								regenMenu();
-							}	
+							}
+							else
+								{
+									menuItems = ['Resume', 'Restart Song', 'Change Difficulty', 'Chart Editor', 'Exit to menu'];
+								}	
 						}
 						else
 					menuItems = ['Resume', 'Restart Song', 'Change Difficulty', 'Chart Editor', 'Exit to menu'];
