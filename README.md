@@ -1,6 +1,6 @@
 # vs yankee-main
- FNF VS yankee with no brim main
- mod by xentidoe
- art by Barkey
- music by Kolificent
- coded by: me (sniper gaming)
+ <h1>FNF VS yankee with no brim main<h1>
+ <h1>mod by xentidoe<h1>
+ <h1>art by Barkey<h1>
+ <h1>music by Kolificent<h1>
+ <h1>coded by: me (sniper gaming)<h1>
