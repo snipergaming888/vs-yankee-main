@@ -23,7 +23,7 @@ class FreeplayState extends MusicBeatState
 
 	var selector:FlxText;
 	var curSelected:Int = 0;
-	var curDifficulty:Int = 1;
+	var curDifficulty:Int = 2;
 
 	var scoreText:FlxText;
 	var diffText:FlxText;
@@ -189,11 +189,6 @@ class FreeplayState extends MusicBeatState
 		{
 			changeSelection(1);
 		}
-
-		if (controls.LEFT_P)
-			changeDiff(-1);
-		if (controls.RIGHT_P)
-			changeDiff(1);
 
 		if (controls.BACK)
 		{
