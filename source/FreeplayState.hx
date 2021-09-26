@@ -212,12 +212,8 @@ class FreeplayState extends MusicBeatState
 
 	function changeDiff(change:Int = 0)
 	{
-		curDifficulty += change;
+		curDifficulty;
 
-		if (curDifficulty = 0)
-			curDifficulty = 2;
-		if (curDifficulty = 1)
-			curDifficulty = 2;
 
 		#if !switch
 		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
@@ -226,9 +222,9 @@ class FreeplayState extends MusicBeatState
 		switch (curDifficulty)
 		{
 			case 0:
-				diffText.text = "EASY";
+				diffText.text = "HARD";
 			case 1:
-				diffText.text = 'NORMAL';
+				diffText.text = 'HARD';
 			case 2:
 				diffText.text = "HARD";
 		}

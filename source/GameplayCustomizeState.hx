@@ -10,6 +10,7 @@ import sys.thread.Thread;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import openfl.ui.Keyboard;
 import flixel.FlxSprite;
+import flixel.util.FlxTimer;
 import flixel.FlxG;
 
 class GameplayCustomizeState extends MusicBeatState
@@ -24,7 +25,7 @@ class GameplayCustomizeState extends MusicBeatState
 
     var sick:FlxSprite = new FlxSprite().loadGraphic(Paths.image('sick','shared'));
 
-    var bf:Boyfriend = new Boyfriend(770, 450, 'bf');
+    var boyfriend:Boyfriend;
     var dad:Character;
 
     var strumLine:FlxSprite;
@@ -43,9 +44,10 @@ class GameplayCustomizeState extends MusicBeatState
 
         super.create();
 
-		camHUD = new FlxCamera();
+        camHUD = new FlxCamera();
 		camHUD.bgColor.alpha = 0;
-        FlxG.cameras.add(camHUD);
+
+		FlxG.cameras.add(camHUD);
 
         background.scrollFactor.set(0.9,0.9);
         curt.scrollFactor.set(0.9,0.9);
@@ -59,11 +61,13 @@ class GameplayCustomizeState extends MusicBeatState
 
 		dad = new Character(100, 100, 'dad');
 
+       boyfriend = new Boyfriend(770, 450, 'bf');
+
 		var camPos:FlxPoint = new FlxPoint(dad.getGraphicMidpoint().x + 400, dad.getGraphicMidpoint().y);
 
 		camFollow.setPosition(camPos.x, camPos.y);
 
-        add(bf);
+        add(boyfriend);
         add(dad);
 
         add(sick);
@@ -115,6 +119,13 @@ class GameplayCustomizeState extends MusicBeatState
 
         super.update(elapsed);
 
+        new FlxTimer().start(2.4, function(tmr:FlxTimer)
+            {
+                ///boyfriend.playAnim('idle');
+                ///dad.dance();
+                tmr.reset();
+            });
+
         FlxG.camera.zoom = FlxMath.lerp(0.9, FlxG.camera.zoom, 0.95);
         camHUD.zoom = FlxMath.lerp(1, camHUD.zoom, 0.95);
 
@@ -143,9 +154,6 @@ class GameplayCustomizeState extends MusicBeatState
     override function beatHit() 
     {
         super.beatHit();
-
-        bf.playAnim('idle');
-        dad.dance();
 
         FlxG.camera.zoom += 0.015;
         camHUD.zoom += 0.010;

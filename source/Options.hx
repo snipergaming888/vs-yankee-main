@@ -110,6 +110,27 @@ class DownscrollOption extends Option
 	}
 }
 
+class BotplayOption extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.save.data.botplay = !FlxG.save.data.botplay;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return FlxG.save.data.botplay ? "Botplay on" : "Botplay off";
+	}
+}
+
 class AccuracyOption extends Option
 {
 	public function new(desc:String)

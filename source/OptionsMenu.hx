@@ -36,6 +36,7 @@ class OptionsMenu extends MusicBeatState
 		]),
 		new OptionCatagory("Misc", [
 			new EtternaModeOption("Harder Hit Windows and a different scoring system."),
+			new BotplayOption("Have the CPU automatically play for you."),
 			#if !mobile
 			new FPSOption("Toggle the FPS Counter"),
 			#end
